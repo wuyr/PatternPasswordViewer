@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">图案密码查看器</string>
+    <string name="password">你的密码是:</string>
+    <string name="start">找回密码</string>
+</resources>
