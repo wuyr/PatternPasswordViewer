@@ -87,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 初始化沉浸状态栏
+     */
     private void initImmerseBar() {
         ImmerseUtil.setImmerseBar(this,
                 getResources().getColor(R.color.colorPrimaryDark));
@@ -169,6 +172,11 @@ public class MainActivity extends AppCompatActivity {
         return null;
     }
 
+    /**
+     * 密文转SHA1码
+     * @param data 密文的字节数组
+     * @return SHA1
+     */
     private String p2SHA1(byte[] data) {
         StringBuilder sb = new StringBuilder();
         for (byte b : data)
@@ -176,6 +184,11 @@ public class MainActivity extends AppCompatActivity {
         return sb.toString();
     }
 
+    /**
+     * 字节转16进制String
+     * @param b 要转换的字节
+     * @param sb 转换后的存放对象
+     */
     private void byte2HexString(byte b, StringBuilder sb) {
         int number = b & 0x00ff;
         if (number < 16)

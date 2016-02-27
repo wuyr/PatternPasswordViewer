@@ -33,8 +33,11 @@ import static com.demo.patternpasswordviewer.R.id.ic_9;
 public class PatternView extends LinearLayout {
 
     private Context mContext;
+    //九宫格上面的九个点
     private ImageView[] mImageViews;
+    //1~9的图标，表示顺序
     private List<Integer> mPic;
+    //画路径的
     private Paint mPaint;
     private Bitmap mBitmap;
     private Canvas mCanvas;
@@ -95,6 +98,10 @@ public class PatternView extends LinearLayout {
         mPaint.setAlpha(128);
     }
 
+    /**
+     * 更新图案
+     * @param s 路径顺序
+     */
     public void draw(String s) {
         resetIcon();
         mBitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
@@ -107,11 +114,19 @@ public class PatternView extends LinearLayout {
         }
     }
 
+    /**
+     * 重置回九个点
+     */
     private void resetIcon(){
         for (ImageView iv : mImageViews)
             iv.setImageResource(drawable.ic_selected);
     }
 
+    /**
+     * 画路径
+     * @param start 开始的点
+     * @param end 结束的点
+     */
     private void drawLine(View start, View end) {
         mCanvas.drawLine(start.getX() + start.getWidth() / 2, start.getY() + start.getHeight() / 2,
                 end.getX() + end.getWidth() / 2, end.getY() + end.getHeight() / 2, mPaint);
